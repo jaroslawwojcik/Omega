@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omega", "Omega\Omega.csproj", "{58D30DF1-7B7B-4F61-B428-EE2CD01EB061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omega.Tests", "Omega.Tests\Omega.Tests.csproj", "{1EBCA499-A354-4031-AAB3-FA8B631A2487}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58D30DF1-7B7B-4F61-B428-EE2CD01EB061}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58D30DF1-7B7B-4F61-B428-EE2CD01EB061}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58D30DF1-7B7B-4F61-B428-EE2CD01EB061}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58D30DF1-7B7B-4F61-B428-EE2CD01EB061}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EBCA499-A354-4031-AAB3-FA8B631A2487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EBCA499-A354-4031-AAB3-FA8B631A2487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EBCA499-A354-4031-AAB3-FA8B631A2487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EBCA499-A354-4031-AAB3-FA8B631A2487}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {767BE4B7-C39A-4413-9E5B-95B98112111C}
+	EndGlobalSection
+EndGlobal
