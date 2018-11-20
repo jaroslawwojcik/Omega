@@ -1,4 +1,5 @@
 ﻿using Omega.Models.Role;
+using Omega.Repositories.IRepositories;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -6,7 +7,7 @@ namespace Omega.Models
 {
     public class AddUserViewModel
     {
-        private readonly IRoleRepository _roleRepository = new RoleInMemoryRepository();
+        private readonly IRoleRepository _roleRepository;
 
         public AddUserViewModel()
         {

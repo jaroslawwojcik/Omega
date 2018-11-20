@@ -13,19 +13,19 @@ namespace Omega.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly IList<Role> _roles;
-
+       
         public long Add(AddUserViewModel userModel)
         {
-            var user = new User
-            {
-                FirstName = userModel.FirstName,
-                LastName = userModel.LastName,
-                Role = _roles.SingleOrDefault(r => r.RoleId == userModel.RoleId),
-                IsActive = true
-            };
             using (var context = new OmegaContext())
             {
+                var user = new User
+                {
+                    FirstName = userModel.FirstName,
+                    LastName = userModel.LastName,
+                    Role = context.Roles.SingleOrDefault(r => r.RoleId == userModel.RoleId),
+                    IsActive = true
+                };
+            
                 context.Users.Add(user);
                 context.SaveChanges();
                 return user.UserId;
@@ -46,13 +46,12 @@ namespace Omega.Repositories
         {
             using (var context = new OmegaContext())
             {
-                return context.Users.Select(u => new UserViewModel
+                return context.Users.ToArray().Select(u => new UserViewModel
                 {
                     Id = u.UserId,
-                    FullName = $"{u.FirstName} {u.LastName}",
-                    Role = u.Role,
-                    IsActiveAsString = u.IsActive ? "TAK" : "NIE"
-
+                    FullName = String.Format("{0} {1}", u.FirstName, u.LastName),
+                    IsActiveAsString = u.IsActive ? "TAK" : "NIE",
+                    Role = context.Roles.SingleOrDefault(r => r.RoleId == u.RoleId)                    
                 })
                 .ToList();
             }
@@ -67,10 +66,10 @@ namespace Omega.Repositories
                     Id = u.UserId,
                     FirstName = u.FirstName,
                     LastName = u.LastName,
-                    Role = u.Role,
+                    Role = context.Roles.FirstOrDefault(r => r.RoleId == u.RoleId),
                     IsActive = u.IsActive
                 })
-                .SingleOrDefault(u => u.Id == id);
+                .FirstOrDefault(u => u.Id == id);
             }
         }
 

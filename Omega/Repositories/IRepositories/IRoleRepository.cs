@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Omega.Repositories.IRepositories
 {
-    interface IRoleRepository
+    public interface IRoleRepository
     {
-        IList<RoleViewModel> GetAll();
+        IList<RoleViewModel> GetAllRoles();
         void Add(AddRoleViewModel role);
         void Delete(long id);
         void Update(EditRoleViewModel user);

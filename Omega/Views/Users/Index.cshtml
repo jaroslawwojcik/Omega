@@ -1,28 +1,20 @@
-﻿@model IEnumerable<Omega.Entities.User>
+﻿@using Omega.Models.User
+@model IEnumerable<UserViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Użytkownicy";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Dodaj użytkownika", "Create")
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Role.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
+        <th>Rola</th>
+        <th>Imię i Nazwisko</th>
+        <th>Czy aktywny?</th>
         <th></th>
     </tr>
 
@@ -32,18 +24,15 @@
             @Html.DisplayFor(modelItem => item.Role.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.FullName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => item.IsActiveAsString)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RoleId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RoleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RoleId })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.Role.RoleId }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.Role }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Role })
         </td>
     </tr>
 }

@@ -1,6 +1,10 @@
+using Omega.Repositories;
+using Omega.Repositories.IRepositories;
 using System;
-using Unity.Configuration;
+using System.Web.Mvc;
 using Unity;
+using Unity.AspNet.Mvc;
+using Unity.Injection;
 
 namespace Omega
 {
@@ -38,10 +42,14 @@ namespace Omega
         {
             // NOTE: To load from web.config uncomment the line below.
             // Make sure to add a Unity.Configuration to the using statements.
-            container.LoadConfiguration();
+            //container.LoadConfiguration();
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
+            container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<IRoleRepository, RoleRepository>();
+
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
 }

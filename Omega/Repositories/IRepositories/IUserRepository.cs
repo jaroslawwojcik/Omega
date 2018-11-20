@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Omega.Repositories.IRepositories
 {
-    interface IUserRepository
+    public interface IUserRepository
     {
         IList<UserViewModel> GetAllUsers();
         EditUserViewModel GetUser(long id);

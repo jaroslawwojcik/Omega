@@ -7,5 +7,8 @@ namespace Omega.Models.Role
 {
     public class EditRoleViewModel
     {
+        public long RoleId { get; set; }
+
+        public string Name { get; set; }
     }
 }
