@@ -63,13 +63,13 @@ namespace Omega.Repositories
             {
                 return context.Users.Select(u => new EditUserViewModel
                 {
-                    Id = u.UserId,
+                    UserId = u.UserId,
                     FirstName = u.FirstName,
                     LastName = u.LastName,
                     Role = context.Roles.FirstOrDefault(r => r.RoleId == u.RoleId),
                     IsActive = u.IsActive
                 })
-                .FirstOrDefault(u => u.Id == id);
+                .FirstOrDefault(u => u.UserId == id);
             }
         }
 
@@ -77,7 +77,7 @@ namespace Omega.Repositories
         {
             using (var context = new OmegaContext())
             {
-                var originalUser = context.Users.Single(x => x.UserId == model.Id);
+                var originalUser = context.Users.Single(x => x.UserId == model.UserId);
                 context.Entry(originalUser).CurrentValues.SetValues(model);
                 context.SaveChanges();
             }

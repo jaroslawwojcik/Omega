@@ -170,6 +170,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="DAL\GenericUnitOfWork.cs" />
     <Compile Include="DAL\OmegaContext.cs" />
     <Compile Include="DAL\OmegaInitializer.cs" />
     <Compile Include="Entities\Client.cs" />
@@ -187,6 +188,8 @@
     <Compile Include="Models\User\EditUserViewModel.cs" />
     <Compile Include="Models\User\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\IRepositories\IRepository.cs" />
     <Compile Include="Repositories\IRepositories\IRoleRepository.cs" />
     <Compile Include="Repositories\IRepositories\IUserRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
@@ -239,6 +242,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="System\Data\" />
     <Folder Include="Views\Client\" />
     <Folder Include="Views\Order\" />
     <Folder Include="Views\Role\" />

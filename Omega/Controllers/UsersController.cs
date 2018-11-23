@@ -11,25 +11,27 @@ namespace Omega.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly IUserRepository _personsRepository;
-        private readonly IRoleRepository _roleRepository;
-
-        public UsersController(IUserRepository personsRepository, IRoleRepository roleRepository)
+        private GenericUnitOfWork _unitOfWork = null;
+        public UsersController()
         {
-            _personsRepository = personsRepository;
-            _roleRepository = roleRepository;
+            _unitOfWork = new GenericUnitOfWork();
         }
+        public UsersController(GenericUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
 
         public ActionResult Index()
         {
-            var userList = _personsRepository.GetAllUsers();
-            return View(userList);
+            
+            return View(_unitOfWork.Repository<User>().GetAll().ToList());
         }
 
         public ActionResult Edit(long id)
         {
-            var userToEdit = _personsRepository.GetUser(id);
-            return View(userToEdit);
+            
+            return View(_unitOfWork.Repository<User>().GetSingle(id));
         }
 
         [HttpPost]

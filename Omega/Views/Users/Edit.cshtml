@@ -1,5 +1,4 @@
-﻿@using Omega.Models.User
-@model EditUserViewModel
+﻿@model Omega.Models.EditUserViewModel
 
 @{
     ViewBag.Title = "Edycja";
@@ -37,7 +36,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.RoleId, "RoleId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("RoleId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("RoleId", Model.RoleModelsList, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
             </div>
         </div>
