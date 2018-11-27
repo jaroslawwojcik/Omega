@@ -1,10 +1,13 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using AutoMapper;
 using Omega.DAL;
 using Omega.Entities;
 using Omega.Models;
+using Omega.Models.User;
 using Omega.Repositories.IRepositories;
 
 namespace Omega.Controllers
@@ -21,11 +24,12 @@ namespace Omega.Controllers
             _unitOfWork = unitOfWork;
         }
 
-
         public ActionResult Index()
         {
+            var usersList = _unitOfWork.Repository<User>().GetAll().ToList();
+            var userViewModelList = Mapper.Map<List<UserViewModel>>(usersList);
             
-            return View(_unitOfWork.Repository<User>().GetAll().ToList());
+            return View(userViewModelList);
         }
 
         public ActionResult Edit(long id)
